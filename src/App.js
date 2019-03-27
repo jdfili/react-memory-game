@@ -26,32 +26,32 @@ class App extends Component {
       if (character.id === id) {
         return true
       } else return false
-    })
+    });
     this.checkArr(checkArr, id)
   };
   //carries out proper steps depending on whether or not a match was found
   checkArr = (arr, id) => {
-    if (arr.includes(true)) {
+    if (arr.length === 1 && arr.includes(true)) {
+      this.setState({ feedBack: "You win!"});
+      this.setState({highScore: 10});
+      this.reset();
+    }
+    else if (arr.includes(true)) {
       this.score();
       const characters = this.state.characters.filter(character => character.id !== id);
       this.setState({ characters: characters });
-      if (this.state.score === 10) {
-        this.setState({ feedBack: "Congrats, you win!" })
-        this.reset();
-      } else {
-        this.setState({ feedBack: "You've guessed correctly" })
-      }
+      this.setState({ feedBack: "You've guessed correctly" })
       this.shuffle(this.state.baseCharacters)
     } else {
+      if (this.state.score > this.state.highScore) {
+        this.setState({ highScore: this.state.score })
+      };
       this.setState({ feedBack: "You've guessed incorrectly" })
       this.reset();
     }
   };
   //resets to original state
   reset = () => {
-    if (this.state.score > this.state.highScore) {
-      this.setState({ highScore: this.state.score })
-    };
     this.shuffle(this.state.baseCharacters)
     this.setState({ score: 0 })
     this.setState({ characters: this.state.baseCharacters })
@@ -66,19 +66,16 @@ class App extends Component {
       <Wrapper>
         <h3>Score: {this.state.score}</h3>
         <h3>High Score: {this.state.highScore}</h3>
-        <h3>{this.state.feedBack ? this.state.feedBack : "Click a character to begin"}</h3>
+        <h3>{this.state.feedBack ? this.state.feedBack: "Click a character to begin"}</h3>
         <Jumbotron>
-          {
-            this.state.baseCharacters.map(character => {
-              return <Card
-                onClick={this.guessed}
-                alertMe={this.alertMe}
-                key={character.id}
-                id={character.id}
-                name={character.name}
-                alt={character.name}
-                image={character.image} />
-            })}
+          {this.state.baseCharacters.map(character => {
+            return <Card
+              onClick={this.guessed}
+              key={character.id}
+              id={character.id}
+              alt={character.name}
+              image={character.image} />
+          })}
         </Jumbotron>
       </Wrapper>
     )
