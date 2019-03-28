@@ -48,6 +48,16 @@
     "id": 10,
     "name": "Ramsay Bolton",
     "image": "https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/character/s5/ramsay-1920.jpg/_jcr_content/renditions/cq5dam.web.1200.675.jpeg"
+  },
+  {
+    "id": 11,
+    "name": "Cersei Lannister",
+    "image": "https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/character/s5/cersei-lannister-1920.jpg/_jcr_content/renditions/cq5dam.web.1200.675.jpeg"
+  },
+  {
+    "id": 12,
+    "name": "Tormund",
+    "image": "https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/character/s5/tormund-1920.jpg/_jcr_content/renditions/cq5dam.web.1200.675.jpeg"
   }
   
 ]

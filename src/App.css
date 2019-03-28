@@ -1,9 +1,18 @@
 body {
+  font-family: 'Germania One', cursive;
   text-align: center;
+  background-image: url("/images/abstract-arctic-art-326240.jpg")
+}
+.banner {
+  background: rgb(14,14,22);
+  color: white;
+  box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.75);
 }
 .card {
-  margin: 5px;
+  margin: 10px;
   border-color: rgb(72,72,72);
   border-width: 2px;
 }
-
+.nav {
+  box-shadow: 5px, 5px;
+}
