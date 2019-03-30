@@ -30,7 +30,7 @@ class App extends Component {
   checkArr = (arr, id) => {
     if (arr.length === 1 && arr.includes(true)) {
       this.setState({ feedBack: "You win!" });
-      this.setState({ highScore: 10 });
+      this.setState({ highScore: this.state.baseCharacters.length });
       this.reset();
     }
     else if (arr.includes(true)) {
